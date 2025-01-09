@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1A. Сортировка</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>2 секунды</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>stdin</div><div class="output-file output-standard"><div class="property-title">вывод</div>stdout</div></div><div><p>Дан массив целых чисел. Ваша задача — отсортировать его в порядке неубывания.</p><p>В данной задаче запрещено пользоваться стандартной библиотекой языка (функциями <span class="tex-font-style-tt">std::sort</span>, <span class="tex-font-style-tt">std::stable_sort</span> в C++ и их аналогами в других языках программирования).</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке входного файла содержится число $$$N$$$ ($$$1 \le N \le 100\,000$$$) — количество элементов в массиве. </p><p>Во второй строке находятся $$$N$$$ целых чисел, по модулю не превосходящих $$$10^{9}$$$.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В выходной файл надо вывести этот же массив, отсортированный по неубыванию.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>10<br />1 8 2 1 4 7 3 2 3 6<br /></pre></div><div class="output"><div class="title">Выходные данные</div><pre>1 1 2 2 3 3 4 6 7 8 </pre></div></div></div></div></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1B. K-я порядковая статистика</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>2 секунды</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дан массив, содержащий $$$n$$$ целых чисел. Вам нужно найти в этом массиве $$$k$$$-й по счету минимальный элемент ($$$k \in [0, n - 1]$$$), то есть элемент, который после сортировки массива по неубыванию окажется на $$$k$$$-м месте от начала массива (индексация элементов начинается с нуля).</p><p>Элементы массива $$$a_i$$$ задаются при помощи псевдослучайного генератора по формуле: $$$a_i=(1\,103\,515\,245 \cdot a_{i-1} + 12\,345) \bmod 2^{31}$$$, то есть все элементы массива задаются одним начальным значением $$$a_0$$$.</p><p>В данной задаче запрещено пользоваться стандартной библиотекой языка (функцией <span class="tex-font-style-tt">std::nth_element</span> в C++ и их аналогами в других языках программирования).</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Программа получает на вход три целых числа $$$n$$$, $$$a_0$$$ и $$$k$$$ ($$$1 \le n \le 2 \cdot 10^7$$$, $$$0 \le a_0 &lt; 2^{31}$$$, $$$0 \le k &lt; n$$$) — количество элементов в массиве, значение первого элемента массива и индекс искомого элемента, соответственно.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Программа должна вывести одно целое число — $$$k$$$-й минимум в данной последовательности.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>5 123456789 2<br /></pre></div><div class="output"><div class="title">Выходные данные</div><pre>850994577<br /></pre></div></div></div><div class="note"><div class="section-title">Примечание</div><p>В примере из условия сгенерированный массив имеет вид $$$[123\,456\,789,~231\,794\,730,~1\,126\,946\,331,~1\,757\,975\,480,~850\,994\,577]$$$.</p></div></div></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1C. Анти-QuickSort</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Для сортировки последовательности чисел широко используется быстрая сортировка — QuickSort. Далее приведена программа, которая сортирует массив $$$a$$$, используя этот алгоритм.</p><pre class="verbatim"><br />void quick_sort(int left, int right) {<br />    int i = left;<br />    int j = right;<br />    int key = a[(left + right) / 2];<br />    while (i &lt;= j) {<br />        while (a[i] &lt; key) {<br />            i++;<br />        }<br />        while (key &lt; a[j]) {<br />            j--;<br />        }<br />        if (i &lt;= j) {<br />            swap(a[i], a[j]);<br />            i++;<br />            j--;<br />        }<br />    }<br />    if (left &lt; j) {<br />        quick_sort(left, j);<br />    }<br />    if (i &lt; right) {<br />        quick_sort(i, right);<br />    }<br />}<br /><br />...<br /><br />quick_sort(0, n - 1);<br /></pre><p>Хотя QuickSort является самой быстрой сортировкой в среднем, существуют тесты, на которых она работает очень долго. Оценивать время работы алгоритма будем количеством сравнений с элементами массива (то есть суммарным количеством сравнений в первом и втором <span class="tex-font-style-tt">while</span>). Требуется написать программу, генерирующую тест, на котором быстрая сортировка сделает наибольшее число таких сравнений.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке находится единственное число $$$N$$$ ($$$1 \le N \le 70\,000$$$).</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Вывести перестановку чисел от $$$1$$$ до $$$N$$$, на которой быстрая сортировка выполнит максимальное число сравнений. Если таких перестановок несколько, вывести любую из них.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+1 </pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+1 3 2 </pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1D. Количество инверсий</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Напишите программу, которая для заданного массива $$$A=\langle a_1,a_2,\dots,a_n\rangle$$$ находит количество пар $$$(i,j)$$$ таких, что $$$i &lt; j$$$ и $$$a_i &gt; a_j$$$.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первая строка входного файла содержит натуральное число $$$n$$$ ($$$1 \leqslant n \leqslant 100\,000$$$) — количество элементов массива.</p><p>Вторая строка содержит $$$n$$$ попарно различных элементов массива $$$A$$$ — целых неотрицательных чисел, не превосходящих $$$10^6$$$.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В выходной файл выведите одно число — ответ на задачу.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+5
+11 6 31 28 18
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+4</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">4I. Очередь в магазине</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 s.</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 MB</div><div class="input-file input-standard"><div class="property-title">ввод</div>standard input</div><div class="output-file output-standard"><div class="property-title">вывод</div>standard output</div></div><div><p>В одном известном магазине случилась распродажа, однако администрация не учла одну проблему: в магазине всего одна касса! Сразу после начала распродажи возле кассы организовалась длинная очередь. Никто не любит очереди, поэтому у покупателей постепенно возрастает уровень агрессии. От вас требуется рассмотреть процесс продвижения очереди.</p><p>Могут происходить события трёх типов: </p><ol> <li> В конец очереди встал человек с уровнем агрессии $$$a$$$; </li><li> Первый человек в очереди начал ругаться с кассиром, в результате чего уровень его агрессии увеличился на $$$x$$$, а уровень агрессии каждого из <span class="tex-font-style-bf">остальных</span> людей в очереди (если в очереди стоит не один человек) увеличился на $$$y$$$; </li><li> Первый человек в очереди оплатил покупку и ушёл из магазина. </li></ol><p>От вас требуется обработать $$$N$$$ событий. Будем считать, что изначально очередь пуста. Так как администрация магазина заботится о своей репутации, им важно знать, насколько агрессивными их покупатели уходят из магазина. Поэтому для каждого события третьего типа нужно определить уровень агрессии человека, который ушёл из магазина.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке записано одно число $$$N$$$ — количество событий ($$$2 \leq N \leq 300000$$$).</p><p>В каждой из следующих $$$N$$$ строк содержится описание очередного события:</p><ul> <li> <span class="tex-font-style-tt">1 a</span>, если произошло событие первого типа; </li><li> <span class="tex-font-style-tt">2 x y</span>, если произошло событие второго типа; </li><li> <span class="tex-font-style-tt">3</span>, если произошло событие третьего типа. </li></ul><p>Для всех событий верно, что $$$1 \leq a, x, y \leq 10^9$$$. Гарантируется, что события второго и третьего типов происходят только в том случае, если в очереди есть хотя бы один человек. Также гарантируется, что после $$$N$$$ событий в очереди не останется ни одного человека. Возможны случаи, когда первый человек в очереди несколько раз подряд ссорится с кассиром.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Для каждого запроса третьего типа выведите одно число — уровень агрессии человека, который ушёл из магазина. Каждое число следует выводить на отдельной строке.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+8
+1 4
+1 2
+2 6 1
+3
+2 10 20
+1 1
+3
+3
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+10
+13
+1
+</pre></div></div></div><div class="note"><div class="section-title">Примечание</div><p>Сначала в очередь встали два человека с уровнями агрессии $$$4$$$ и $$$2$$$ соответственно. Затем первый человек поссорился с кассиром, после чего уровни агрессии людей стали равны $$$10$$$ и $$$3$$$. После этого первый человек ушёл из очереди, а второй поссорился с кассиром. Теперь уровень его агрессии равен $$$13$$$. Затем в очередь встал человек с уровнем агрессии $$$1$$$, после чего оба человека ушли из магазина.</p></div></div></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1G. Мëд для Михаила</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>2 секунды</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Медведь Михаил очень любит мëд. Вот беда — мëд у него в берлоге закончился, поэтому Михаил приехал к любимой бабушке, владеющей медовой фабрикой.</p><p>Бабушка очень добрая, она разрешила Мише брать столько мëда, сколько он хочет. Всего у бабушки есть $$$n$$$ бочек с мëдом. В $$$i$$$-й бочке содержится $$$a_i$$$ литров мëда. Миша взял с собой $$$m$$$ ведер, каждое из которых вмещает $$$p$$$ литров мёда.</p><p>Михаил очень хорошо разбирается в мëде и понимает, что если смешивать мëд из разных бочек, то он будет невкусный. Поэтому Миша не будет наливать мëд из нескольких бочек в одно ведро. Теперь Миша хочет узнать, какое максимальное количество мëда он сможет увезти с собой. </p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первая строка содержит три целых числа $$$n$$$, $$$m$$$ и $$$p$$$ ($$$1 \le n, m \le 10^5$$$, $$$1 \le p \le 10^9$$$) — количество бочек с мëдом, количество ведер у Михаила и вместимость ведер, соответственно.</p><p>Вторая строка содержит $$$n$$$ целых чисел $$$a_1, a_2, \ldots, a_i$$$ ($$$1 \le a_i \le 10^9$$$) — количество литров мëда в каждой из бочек.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите одно число — максимальное количество литров мëда, которое сможет унести Михаил.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+3 2 4
+2 3 4
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+7</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3 2 4
+1 2 7
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+7</pre></div></div></div><div class="note"><div class="section-title">Примечание</div><p>В первом примере Миша нальет $$$3$$$ литра мëда из второй бочки в одно ведро и $$$4$$$ литра из третьей бочки во второе ведро.</p><p>Во втором примере Мише следует налить $$$3$$$ и $$$4$$$ литра мëда в два ведра из третьей бочки.</p></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1H. Цифровая сортировка</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Даны $$$n$$$ строк, требуется вывести их порядок после $$$k$$$ фаз цифровой сортировки.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первая строка содержит три целых числа $$$n$$$, $$$m$$$ и $$$k$$$ ($$$1 \le n \le 1\,000$$$, $$$1 \le k \le m \le 1\,000$$$) — количество строк, длина строк и количество фаз цифровой сортировки.</p><p>Каждая из следующих $$$n$$$ строк содержит строку, состоящую из $$$m$$$ символов.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите строки в том порядке, в котором они будут находиться после $$$k$$$ фаз цифровой сортировки.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+3 3 1
+bbb
+aba
+baa
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+aba
+baa
+bbb
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3 3 2
+bbb
+aba
+baa
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+baa
+aba
+bbb
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3 3 3
+bbb
+aba
+baa
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+aba
+baa
+bbb
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">3A. Двоичный поиск</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Реализуйте двоичный поиск в массиве.</p><p>В данной задаче запрещено пользоваться стандартной библиотекой языка (функциями <span class="tex-font-style-tt">std::binary_search</span>, <span class="tex-font-style-tt">std::lower_bound</span>, <span class="tex-font-style-tt">std::upper_bound</span> в C++ и их аналогами в других языках программирования).</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке входных данных содержатся натуральные числа $$$N$$$ и $$$K$$$ ($$$1 \le N, K \le 100\,000$$$).</p><p>Во второй строке задаются $$$N$$$ элементов первого массива.</p><p>В в третьей строке — $$$K$$$ элементов второго массива.</p><p>Элементы обоих массивов — целые числа, каждое из которых по модулю не превосходит $$$10^9$$$.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Требуется для каждого из $$$K$$$ чисел вывести в отдельную строку «<span class="tex-font-style-tt">YES</span>», если это число встречается в первом массиве, и «<span class="tex-font-style-tt">NO</span>» в противном случае.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+10 10
+1 61 126 217 2876 6127 39162 98126 712687 1000000000
+100 6127 1 61 200 -10000 1 217 10000 1000000000
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+NO
+YES
+YES
+YES
+NO
+NO
+YES
+YES
+NO
+YES
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">3B. Левый и правый двоичный поиск</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дано два списка чисел, числа в первом списке упорядочены по неубыванию. Для каждого числа из второго списка определите номер первого и последнего появления этого числа в первом списке.</p><p>В данной задаче запрещено пользоваться стандартной библиотекой языка (функциями <span class="tex-font-style-tt">std::binary_search</span>, <span class="tex-font-style-tt">std::lower_bound</span>, <span class="tex-font-style-tt">std::upper_bound</span> в C++ и их аналогами в других языках программирования).</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке входных данных записано два числа $$$N$$$ и $$$M$$$ ($$$1 \leq N, M \leq 20\,000$$$).</p><p>Во второй строке записано $$$N$$$ упорядоченных по неубыванию целых чисел — элементы первого списка.</p><p>В третьей строке записаны $$$M$$$ целых неотрицательных чисел — элементы второго списка. Все числа в списках — целые $$$32$$$-битные знаковые.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Программа должна вывести $$$M$$$ строчек.</p><p>Для каждого числа из второго списка нужно вывести номер его первого и последнего вхождения в первый список.</p><p>Нумерация начинается с единицы. Если число не входит в первый список, нужно вывести одно число $$$0$$$.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+10 5
+1 1 3 3 5 7 9 18 18 57
+57 3 9 1 179
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+10 10
+3 4
+7 7
+1 2
+0
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">4C. Значение арифметического выражения</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Задано числовое выражение. Необходимо вычислить его значение или установить, что оно содержит ошибку. В выражении могут встречаться знаки сложения, вычитания, умножения, скобки и пробелы (пробелов внутри чисел быть не должно). Приоритет операций стандартный. Все числа в выражении целые и по модулю не превосходят $$$2 \cdot 10^9$$$. Также гарантируется, что все промежуточные вычисления умещаются в этот тип.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке вводится выражение. Его длина не превосходит $$$100$$$ знаков. После выражения идет переход на новую строчку.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите значение этого выражения или слово «WRONG», если значение не определено.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+1+(2*2 - 3)
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+2
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+1+a+1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+WRONG
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+1 1 + 2
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+WRONG
+</pre></div></div></div></div><p>  </p></div>
+</body>
+</html>

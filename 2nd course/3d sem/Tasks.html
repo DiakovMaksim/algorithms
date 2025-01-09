@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1A. Получи дерево</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Александр решил посадить у себя в саду дерево. Он купил его в интернет-магазине, и на следующий день его обещали доставить. Но произошла какая-то ошибка, и вместо дерева Александр получил неориентированный связный граф. Оставлять в таком виде граф нельзя: в нем могут быть циклы, в том числе петли, кратные ребра — совсем некрасиво. Поэтому Александр взял топор и решил удалить некоторое количество ребер из графа.</p><p>Выведите любое дерево, которое могло получиться у Александра в результате удаления ребер из графа.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Сначала вводятся 2 числа $$$n$$$ и $$$m$$$ — число вершин и ребер в графе $$$(1 \leq n \leq 10^5, 1 \leq m \leq 2 \cdot 10^5)$$$. Далее идут $$$m$$$ пар чисел, задающих ребра. Гарантируется, что граф связный.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите $$$n - 1$$$ пару чисел — ребра, которые войдут в дерево. Ребра, как и концы каждого ребра, можно выводить в любом порядке.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+4 5
+1 2
+2 3
+3 4
+1 4
+1 2
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+1 2
+2 3
+3 4
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1B. Компоненты связности</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дан неориентированный граф. Необходимо посчитать количество его компонент связности и вывести их.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке записаны два числа $$$n$$$ и $$$m$$$ ($$$1 \leq n \leq 10^5$$$, $$$0 \leq m \leq 10^5$$$) — количество вершин и ребер в графе, соответственно.</p><p>Далее следуют $$$m$$$ строк, содержащих описание ребер графа. В каждой строке записаны два числа $$$u$$$ и $$$v$$$ ($$$1 \leq u, v \leq n$$$, $$$u \neq v$$$), означающие, что вершины $$$u$$$ и $$$v$$$ соединены ребром.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В первой строке выведите одно число — количество компонент связности.</p><p>Далее выведите сами компоненты в следующем формате: в первой строке следует вывести количество вершин в компоненте, а во второй строке — номера вершин, принадлежащих данной компоненте.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+6 4
+3 1
+1 2
+5 4
+2 3
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+3
+3
+1 3 2
+2
+4 5
+1
+6
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1C. Свяжите графа</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дан неориентированный граф. Требуется добавить минимальное количество ребер, чтобы он стал связным.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке через пробел заданы целые числа $$$N$$$ и $$$M$$$ — количество вершин и ребер графа ($$$1 \le N \le 1000$$$, $$$0 \le M \le 7000$$$). В следующих $$$M$$$ строках через пробел заданы пары целых чисел $$$u$$$ и $$$v$$$ — номера вершин, соединенных ребром ($$$1 \le u, v \le N$$$).</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В первую строку вывести единственное число $$$K$$$ — минимальное число рёбер, которое нужно добавить. В следующих $$$K$$$ строках выведите по 2 числа — номера вершин, между которыми нужно провести ребро. Разрешается вывести любой ответ.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+3 1
+2 1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+1
+1 3
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1D. Есть ли цикл?</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дан ориентированный граф. Требуется определить, есть ли в нем цикл.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Сначала вводятся два числа: $$$N$$$ и $$$M$$$ $$$(1 \leq N \leq 10^5, 0 \leq M \leq 10^5)$$$ – количество вершин и ребер графа соответственно. Далее идет $$$M$$$ пар чисел, задающих ребра. Гарантируется, что граф не содержит петель.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите «-1» без кавычек, если нет цикла. В противном случае выведите в первую строку количество вершин в цикле, а во вторую — номера вершин в цикле в порядке обхода. Если ответов несколько выведите любой.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+4 4
+1 2
+2 3
+3 4
+4 1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+4
+2 3 4 1 </pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1E. Раскраска в два цвета</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Вам дан неориентированный граф, состоящий из $$$n$$$ вершин и $$$m$$$ ребер. Требуется построить правильную раскраску вершин графа в два цвета, либо определить, что она не существует.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первая строка содержит два целых числа $$$n$$$ и $$$m$$$ ($$$1 \le n \le 10^5$$$, $$$0 \le m \le 10^5$$$) — количество вершин и ребер графа, соответственно.</p><p>Каждая из следующих $$$m$$$ строк содержит два целых числа $$$u_i$$$ и $$$v_i$$$ ($$$1 \le u_i, v_i \le n$$$, $$$u_i \neq v_i$$$) — номера вершин, соединенных $$$i$$$-м ребром графа.</p><p>Гарантируется, что граф не содержит кратных ребер.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В случае, если правильной раскраски вершин графа в два цвета не существует, выведите число $$$-1$$$.</p><p>В противном случае выведите через пробел $$$n$$$ целых чисел $$$c_1, c_2, \ldots, c_n$$$ ($$$1 \le c_i \le 2$$$) — цвета вершин графа.</p></div><div><div class="section-title">Система оценки</div><p>Помимо тестов из условия, в данной задаче имеется $$$25$$$ тестов, каждый из которых оценивается независимо в $$$4$$$ балла.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+7 7
+1 5
+1 6
+1 7
+2 7
+3 6
+3 7
+4 7
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+1 1 1 1 2 2 2
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3 3
+1 2
+2 3
+3 1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+-1
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1F. Topsort</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>2 секунды</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Дан ориентированный невзвешенный граф. Необходимо его топологически отсортировать.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке входного файла даны два целых числа $$$N$$$ и $$$M$$$ ($$$1 \leq N \leq 100\,000, 0 \leq M \leq 100\,000$$$) — количества вершин и рёбер в графе соответственно. Далее в $$$M$$$ строках перечислены рёбра графа. Каждое ребро задаётся парой чисел — номерами начальной и конечной вершин соответственно.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Вывести любую топологическую сортировку графа в виде последовательности номеров вершин. Если граф невозможно топологически отсортировать, вывести «<span class="tex-font-style-tt">-1</span>».</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+6 6
+1 2
+3 2
+4 2
+2 5
+6 5
+4 6
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+4 6 3 1 2 5
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1J. Производство деталей</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Предприятие «Авто-2010» выпускает двигатели для известных во всём мире автомобилей. Двигатель состоит ровно из $$$n$$$ деталей, пронумерованных от $$$1$$$ до $$$n$$$, при этом деталь с номером $$$i$$$ изготавливается за $$$p_i$$$ секунд. Специфика предприятия «Авто-2010» заключается в том, что там одновременно может изготавливаться лишь одна деталь двигателя. Для производства некоторых деталей необходимо иметь предварительно изготовленный набор других деталей.</p><p>Генеральный директор «Авто-2010» поставил перед предприятием амбициозную задачу — за наименьшее время изготовить деталь с номером $$$1$$$, чтобы представить её на выставке.</p><p>Требуется написать программу, которая по заданным зависимостям порядка производства между деталями найдёт наименьшее время, за которое можно произвести деталь с номером $$$1$$$.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Первая строка входного файла содержит число $$$n$$$ ($$$1 \leq n \leq 10^5$$$) — количество деталей двигателя. </p><p>Вторая строка содержит $$$n$$$ натуральных чисел $$$p_1, p_2, \ldots, p_n$$$, определяющих время изготовления каждой детали в секундах. Время для изготовления каждой детали не превосходит $$$10^9$$$ секунд.</p><p>Каждая из последующих $$$n$$$ строк входного файла описывает характеристики производства деталей. Здесь $$$i$$$-я строка содержит число деталей $$$k_i$$$, которые требуются для производства детали с номером $$$i$$$, а также их номера. В $$$i$$$-й строке нет повторяющихся номеров деталей. Сумма всех чисел $$$k_i$$$ не превосходит $$$2 \cdot 10^5$$$.</p><p>Известно, что не существует циклических зависимостей в производстве деталей.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>В первой строке выходного файла должны содержаться два числа: минимальное время (в секундах), необходимое для скорейшего производства детали с номером $$$1$$$ и число $$$k$$$ деталей, которые необходимо для этого произвести.</p><p>Во второй строке требуется вывести через пробел $$$k$$$ чисел — номера деталей в том порядке, в котором следует их производить для скорейшего производства детали с номером $$$1$$$.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+3
+100 200 300
+1 2
+0
+2 2 1
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+300 2
+2 1
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+2
+2 3
+1 2
+0
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+5 2
+2 1
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+4
+2 3 4 5
+2 3 2
+1 3
+0
+2 1 3
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+9 3
+3 2 1
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">1K. Топологическая сортировка</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Задан ориентированный ациклический граф с $$$n$$$ вершинами и $$$m$$$ ребрами. Также задана перестановка вершин графа. Необходимо проверить, является ли данная перестановка топологической сортировкой.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>В первой строке даны два числа $$$n$$$ и $$$m$$$ — количество вершин и ребер в графе соответственно ($$$1 \le n, m \le 10^5$$$ ). В следующих m строках заданы пары чисел $$$u_i,v_i$$$, означающие, что в графе есть ребро из вершины $$$u_i$$$ в вершину $$$v_i$$$. В последней строке задана перестановка из $$$n$$$ элементов.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>Выведите «YES» (без кавычек), если данная перестановка является топологической сортировкой и «NO» в противном случае.</p></div><div class="sample-tests"><div class="section-title">Примеры</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+3 3
+2 3
+1 3
+1 2
+2 1 3
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+NO
+</pre></div><div class="input"><div class="title">Входные данные</div><pre>
+3 3
+3 2
+1 2
+3 1
+3 1 2
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+YES
+</pre></div></div></div></div><p>  </p></div>
+<div class="ttypography"><div class="problem-statement"><div class="header"><div class="title">2A. Конденсация графа</div><div class="time-limit"><div class="property-title">ограничение по времени на тест</div>1 секунда</div><div class="memory-limit"><div class="property-title">ограничение по памяти на тест</div>256 мегабайт</div><div class="input-file input-standard"><div class="property-title">ввод</div>стандартный ввод</div><div class="output-file output-standard"><div class="property-title">вывод</div>стандартный вывод</div></div><div><p>Вам задан ориентированный граф с $$$N$$$ вершинами и $$$M$$$ ребрами ($$$1 \leq N \leq 200\, 000$$$, $$$1 \leq M \leq 200\, 000$$$). Найдите компоненты сильной связности заданного графа и топологически отсортируйте его конденсацию.</p></div><div class="input-specification"><div class="section-title">Входные данные</div><p>Граф задан во входном файле следующим образом: первая строка содержит числа $$$N$$$ и $$$M$$$. Каждая из следующих $$$M$$$ строк содержит описание ребра – два целых числа из диапазона от $$$1$$$ до $$$N$$$ – номера начала и конца ребра.</p></div><div class="output-specification"><div class="section-title">Выходные данные</div><p>На первой строке выведите число $$$K$$$ – количество компонент сильной связности в заданном графе. На следующей строке выведите $$$N$$$ чисел – для каждой вершины выведите номер компоненты сильной связности, которой принадлежит эта вершина. Компоненты сильной связности должны быть занумерованы таким образом, чтобы для любого ребра номер компоненты сильной связности его начала не превышал номера компоненты сильной связности его конца.</p></div><div class="sample-tests"><div class="section-title">Пример</div><div class="sample-test"><div class="input"><div class="title">Входные данные</div><pre>
+10 19
+1 4
+7 8
+5 10
+8 9
+9 6
+2 6
+6 2
+3 8
+9 2
+7 2
+9 7
+4 5
+3 6
+7 3
+6 7
+10 8
+10 1
+2 9
+2 7
+</pre></div><div class="output"><div class="title">Выходные данные</div><pre>
+2
+1 2 2 1 1 2 2 2 2 1 </pre></div></div></div></div><p>  </p></div>
+
+</body>
+</html>
